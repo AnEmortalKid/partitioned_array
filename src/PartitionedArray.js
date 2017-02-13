@@ -98,7 +98,7 @@ PartitionedArray.prototype.getItemCount = function()
  * Returns an {Iterator} that can traverse the PartitionedArray taking one item from each partition at a time.
  * @returns {Iterator} an iterator that can traverse the PartitionedArray taking one item from each partition at a time.
  */
-PartitionedArray.prototype.getIterator = function()
+PartitionedArray.prototype.iterator = function()
 {
     return new Iterator(this);
 }
@@ -164,7 +164,7 @@ Iterator.prototype.hasNext = function()
 Iterator.prototype.next = function()
 {
     
-   if ( this.itemsCounted > this.maxItemCount)
+   if ( this.itemsCounted >= this.maxItemCount)
    {
        throw new Error("No such element.")
    }

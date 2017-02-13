@@ -1,5 +1,5 @@
-describe("A PartitionedArray", function() {
-
+describe("A PartitionedArray", 
+function() {
 
     describe("constructor", 
     function() {
@@ -115,64 +115,63 @@ describe("A PartitionedArray", function() {
         });
     });
     
-        describe("getMaxPartitionSize()",
+    describe("getMaxPartitionSize()",
+    function() {
+ 
+        it("should return size 1 when items.length=2 and partitions=2", 
         function() {
-     
-            it("should return size 1 when items.length=2 and partitions=2", 
-            function() {
-                var items=[1,2];
-                var partitionedArray = new PartitionedArray(items,2);
-                
-                var max = partitionedArray.getMaxPartitionSize();
-                expect(max).toBe(1);
-            });
+            var items=[1,2];
+            var partitionedArray = new PartitionedArray(items,2);
             
-            it("should return size 2 when items.length=3 and partitions=2", 
-            function() {
-                var items=[1,2,3];
-                var partitionedArray = new PartitionedArray(items,2);
-                
-                var max = partitionedArray.getMaxPartitionSize();
-                expect(max).toBe(2);
-            });
+            var max = partitionedArray.getMaxPartitionSize();
+            expect(max).toBe(1);
         });
         
-        describe("getItems()", function(){
+        it("should return size 2 when items.length=3 and partitions=2", 
+        function() {
+            var items=[1,2,3];
+            var partitionedArray = new PartitionedArray(items,2);
+            
+            var max = partitionedArray.getMaxPartitionSize();
+            expect(max).toBe(2);
+        });
+    });
         
-            it("should return the same items without modifying the order", 
-            function(){
-                var items=[1,2];
-                var partitionedArray = new PartitionedArray(items,2);
-                expect(partitionedArray.getItems()).toBe(items);
-            });
-        
+    describe("getItems()", function(){
+    
+        it("should return the same items without modifying the order", 
+        function(){
+            var items=[1,2];
+            var partitionedArray = new PartitionedArray(items,2);
+            expect(partitionedArray.getItems()).toBe(items);
         });
     
-        describe("getItemCount()", function(){
-            
-            it("should return the same number of items as the length of the array used to construct it", 
-            function(){
-                var items=[1,2,3];
-                var partitionedArray = new PartitionedArray(items,3);
-                expect(partitionedArray.getItemCount()).toBe(3);
-            });
+    });
+    
+    describe("getItemCount()", function(){
+        
+        it("should return the same number of items as the length of the array used to construct it", 
+        function(){
+            var items=[1,2,3];
+            var partitionedArray = new PartitionedArray(items,3);
+            expect(partitionedArray.getItemCount()).toBe(3);
         });
+    });
 
-        describe("getIterator()", function(){
-            
-            it("should return a non-null iterator", 
-            function(){
-                var items=[1,2,3];
-                var partitionedArray = new PartitionedArray(items,3);
-                expect(partitionedArray.getIterator()).not.toBe(null);
-            });
-            
-            it("should return a new iterator each time it is called", 
-            function(){
-                var items=[1,2,3];
-                var partitionedArray = new PartitionedArray(items,3);
-                expect(partitionedArray.getIterator()).not.toBe(partitionedArray.getIterator());
-            });
+    describe("iterator()", function(){
+        
+        it("should return a non-null iterator", 
+        function(){
+            var items=[1,2,3];
+            var partitionedArray = new PartitionedArray(items,3);
+            expect(partitionedArray.iterator()).not.toBe(null);
         });
-    
+        
+        it("should return a new iterator each time it is called", 
+        function(){
+            var items=[1,2,3];
+            var partitionedArray = new PartitionedArray(items,3);
+            expect(partitionedArray.iterator()).not.toBe(partitionedArray.iterator());
+        });
+    });    
 });

@@ -67,21 +67,37 @@ PartitionedArray.prototype.getPartitionSizes = function()
     return this.partitionSizes;
 }
 
+/**
+ * Returns the maximum size from any of the partitions.
+ * @returns {Number} the maximum size from any of the partitions.
+ */
 PartitionedArray.prototype.getMaxPartitionSize = function()
 {
     return Math.max.apply(null, this.partitionSizes);
 }
 
+/**
+ * Returns the items stored in this PartitionedArray.
+ * @returns {Array} the items stored in this PartitionedArray.
+ */
 PartitionedArray.prototype.getItems = function() 
 {
     return this.items;
 }
 
+/**
+ * Returns the number of items stored in this PartitionedArray.
+ * @returns {Number} the number of items stored in this PartitionedArray.
+ */
 PartitionedArray.prototype.getItemCount = function()
 {
     return this.items.length;
 }
 
+/**
+ * Returns an {Iterator} that can traverse the PartitionedArray taking one item from each partition at a time.
+ * @returns {Iterator} an iterator that can traverse the PartitionedArray taking one item from each partition at a time.
+ */
 PartitionedArray.prototype.getIterator = function()
 {
     return new Iterator(this);

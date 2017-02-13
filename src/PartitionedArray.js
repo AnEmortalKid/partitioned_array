@@ -2,8 +2,8 @@
 /**
  * Represents a PartitionedArray. A PartitionedArray divides the items into equal parts, if possible, dividing any overflow into subsequent parts.
  * @constructor
- * @param {array} items - the items to partition into the desired number of parts.
- * @param {integer} partitions - the number of partitions to divide the items into
+ * @param {Array} items - the items to partition into the desired number of parts.
+ * @param {Number} partitions - the number of partitions to divide the items into
  */
 function PartitionedArray(items, partitions)
 {
@@ -49,11 +49,19 @@ function createPartitions(items, partitions)
     return partitionItems;
 }
 
+/**
+ * Returns the number of partitions in this PartitionedArray
+ * @returns {Number} the number of partitions in this PartitionedArray
+ */
 PartitionedArray.prototype.getPartitionCount = function() 
 {
     return this.partitions;
 }
 
+/**
+ * Returns an array containing the number of elements in each partition.
+ * @returns {Array} an array containing the number of elements in each partition.
+ */
 PartitionedArray.prototype.getPartitionSizes = function()
 {
     return this.partitionSizes;

@@ -1,7 +1,7 @@
 describe("A PartitionedArray.Iterator", 
 function(){
     
-    describe("hasNext()", 
+    describe("hasNext() with PartitionedArray([1,2], 2)", 
     function(){
     
         it("should return true, when no items have been taken", function(){
